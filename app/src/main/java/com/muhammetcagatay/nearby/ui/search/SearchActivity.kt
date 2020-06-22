@@ -46,7 +46,7 @@ class SearchActivity : BindingBaseActivity() {
         recyclerView = findViewById<RecyclerView>(R.id.rvSearch)
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
-        recyclerViewAdapter = SearchAdapter(searchList, object : SearchAdapter.OnItemClickListener {
+        recyclerViewAdapter = SearchAdapter(applicationContext,searchList, object : SearchAdapter.OnItemClickListener {
             override fun onClick(item: SearchResult) {
 
                 val intent=Intent(applicationContext,MapActivity::class.java)

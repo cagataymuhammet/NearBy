@@ -14,15 +14,14 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppThemeFullScreen"
         android:usesCleartextTraffic="true"
         tools:ignore="HardcodedDebugMode">
 
 
         <activity android:name=".ui.detail.PlaceDetailActivity"/>
-        <activity android:name=".ui.search.SearchActivity" android:theme="@style/AppThemeFullScreen"/>
-
-        <activity android:name=".ui.map.MapActivity" android:theme="@style/AppThemeFullScreen"/>
+        <activity android:name=".ui.search.SearchActivity" />
+        <activity android:name=".ui.map.MapActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

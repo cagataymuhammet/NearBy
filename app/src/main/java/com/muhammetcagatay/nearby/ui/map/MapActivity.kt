@@ -3,8 +3,10 @@ package com.muhammetcagatay.nearby.ui.map
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener
@@ -50,11 +52,8 @@ class MapActivity : BindingBaseActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap)
     {
         mMap = googleMap
-
         val latLng = LatLng(  searchResult!!.geometry.location.lat, searchResult!!.geometry.location.lng)
-
         val marker=  mMap.addMarker(MarkerOptions().position(latLng).title(searchResult!!.name))
-
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
         mMap.animateCamera(
             CameraUpdateFactory.newLatLngZoom(
@@ -76,6 +75,8 @@ class MapActivity : BindingBaseActivity(), OnMapReadyCallback {
                 var txtAdress=roortView.findViewById(R.id.txtPlaceAdress) as TextView
                 txtAdress.text =searchResult!!.formatted_address
 
+                var imgIcon=roortView.findViewById(R.id.imgTypeIcon) as ImageView
+                Glide.with(applicationContext).load(searchResult!!.icon).override(40,40).into(imgIcon)
                 return roortView;
             }
 

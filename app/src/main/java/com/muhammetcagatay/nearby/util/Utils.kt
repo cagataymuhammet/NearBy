@@ -40,4 +40,10 @@ object Utils {
         return Gson().toJson(item)
     }
 
+
+    fun getPhotoUrlByReferance(referance:String,context: Context):String
+    {
+        return "https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&maxheighth=200&photoreference=" + referance + "&sensor=false&key=" + context.getString(R.string.google_maps_key)
+    }
+
 }

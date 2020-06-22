@@ -101,15 +101,19 @@ dependencies {
 
 
     // Koin
-    api("org.koin:koin-android:2.0.1")
-    api("org.koin:koin-androidx-scope:2.0.1")
-    api("org.koin:koin-androidx-viewmodel:2.0.1")
+    api("org.koin:koin-android:2.1.5")
+    api("org.koin:koin-androidx-scope:2.1.5")
+    api("org.koin:koin-androidx-viewmodel:2.1.5")
 
 
     // Retrofit
     api("com.squareup.retrofit2:retrofit:2.9.0")
     api("com.squareup.retrofit2:converter-gson:2.9.0")
     api "com.squareup.okhttp3:logging-interceptor:4.7.2"
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
 
     // Test
