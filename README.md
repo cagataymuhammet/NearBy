@@ -10,15 +10,28 @@
 
 
 # NearBy App
+![appicon](https://github.com/cagataymuhammet/NearBy/blob/master/images/icon.png)
 
+NearBy is a simple Android Google Place Search(Text Search) App
+
+The main goal of this app is to be a sample of how to build an high quality Android application that uses the Architecture components, Koin etc. in Kotlin.
+
+<h2 id="Outputs">Outputs</h2>
+<p>
+  <img src="https://github.com/cagataymuhammet/NearBy/blob/master/images/Nearby.png"  />
+ 
+</p>
 
 
 ## Architecture
 The app uses MVVM [Model-View-ViewModel] architecture to have a unidirectional flow of data, separation of concern, testability, and a lot more.
 
-
 # What is MVVM?
 Model-View-ViewModel (ie MVVM) is a template of a client application architecture, proposed by John Gossman as an alternative to MVC and MVP patterns when using Data Binding technology. Its concept is to separate data presentation logic from business logic by moving it into particular class for a clear distinction.  
+
+
+## Clean Simple Architecture
+![Architecture](https://github.com/cagataymuhammet/NearBy/blob/master/images/arc.png)
 
 
 ## Libraries and tools 🛠
