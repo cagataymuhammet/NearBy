@@ -20,6 +20,7 @@ class SplashActivity : BindingBaseActivity() {
         }.start()
     }
 
+
     fun startSearchActiviy() {
         val intent = Intent(this, SearchActivity::class.java)
         startActivity(intent)
