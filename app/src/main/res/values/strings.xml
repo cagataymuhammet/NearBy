@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">NearBy</string>
+    <string name="api_error_message">An Error Occurred!, Try Again Pls</string>
+    <string name="serch_query_hint"> Search Places Now!</string>
+
+
+</resources>

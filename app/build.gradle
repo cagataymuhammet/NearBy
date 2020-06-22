@@ -1,0 +1,120 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: 'obfuscationUtils.gradle'
+
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+
+        applicationId "com.muhammetcagatay.nearby"
+        minSdkVersion 21
+        targetSdkVersion 29
+
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'BASE_URL', obfuscateJavaToByteString("https://maps.googleapis.com/")
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+
+    kotlin {
+        experimental {
+            coroutines "enable"
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+
+    viewBinding {
+        enabled = true
+    }
+
+
+    androidExtensions {
+        experimental = true
+    }
+
+    sourceSets {
+        androidTest.java.srcDirs += "src/test-common/java"
+        test.java.srcDirs += "src/test-common/java"
+        test.assets.srcDirs += files("$projectDir/schemas".toString())
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
+    }
+
+}
+
+dependencies {
+
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+
+    // Architecture
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'androidx.core:core-ktx:1.3.0'
+    api 'com.google.android.gms:play-services-maps:17.0.0'
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+
+    // Material
+    api("com.google.android.material:material:1.1.0")
+
+    // coroutines
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.5"
+
+
+    // Koin
+    api("org.koin:koin-android:2.0.1")
+    api("org.koin:koin-androidx-scope:2.0.1")
+    api("org.koin:koin-androidx-viewmodel:2.0.1")
+
+
+    // Retrofit
+    api("com.squareup.retrofit2:retrofit:2.9.0")
+    api("com.squareup.retrofit2:converter-gson:2.9.0")
+    api "com.squareup.okhttp3:logging-interceptor:4.7.2"
+
+
+    // Test
+    testImplementation("junit:junit:4.13")
+    androidTestImplementation("androidx.test.ext:junit:1.1.1")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+    testImplementation "androidx.test:core:1.2.0"
+}
