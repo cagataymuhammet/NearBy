@@ -46,6 +46,8 @@ val networkModule = module {
     return logger
   }
 
+
+
   fun provideNearByApi(retrofit: Retrofit): NearByApiService = retrofit.create(NearByApiService::class.java)
 
   factory { provideOkHttpClient(get()) }
